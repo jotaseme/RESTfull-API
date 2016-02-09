@@ -8,7 +8,7 @@ class Categoria extends Model
 {
     protected $table = 'categorias';
 
-    protected $fillable = array('nombre'):
+    protected $fillable = array('nombre');
     protected $hidden = ['created_at','update_at'];
 
     public function productos()
