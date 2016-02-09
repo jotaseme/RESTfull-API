@@ -9,10 +9,10 @@ class Categoria extends Model
     protected $table = 'categorias';
 
     protected $fillable = array('nombre');
-    protected $hidden = ['created_at','update_at'];
+    protected $hidden = ['created_at','updated_at'];
 
     public function productos()
     {
-    	return $this->hasMany(App\Productos);
+    	return $this->hasMany('App\Producto');
     }
 }

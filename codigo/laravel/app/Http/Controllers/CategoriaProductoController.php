@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Categoria;
+use App\Producto;
+
 class CategoriaProductoController extends Controller
 {
     /**
@@ -16,7 +19,17 @@ class CategoriaProductoController extends Controller
 	 */
 	public function index($idCategoria)
 	{
-		return "Mostrando los productos de la categoria con Id $idCategoria";
+		
+		$categoria=Categoria::find($idCategoria);
+ 
+		if (! $categoria)
+		{
+			
+			return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una categoria con ese código.'])],404);
+		}
+ 
+		return response()->json(['status'=>'ok','data'=>$categoria->productos()->get()],200);
+		
 	}
  
 	/**
@@ -86,3 +99,4 @@ class CategoriaProductoController extends Controller
 		//
 	}
 }
+	

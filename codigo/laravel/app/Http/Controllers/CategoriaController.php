@@ -51,8 +51,16 @@ class CategoriaController extends Controller
 	 */
 	public function show($id)
 	{
-		//
-		return "Se muestra categoria con id: $id";
+		
+		
+		$categoria=Categoria::find($id);
+ 
+		if (!$categoria)
+		{
+			return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una categoria con ese codigo.'])],404);
+		}
+ 
+		return response()->json(['status'=>'ok','data'=>$categoria],200);
 	}
  
 	/**

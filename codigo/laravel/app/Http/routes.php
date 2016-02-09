@@ -10,7 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/', function()
+{
+    return 'Hola Mundo.';
+});
 
 Route::resource('categorias','CategoriaController',['except'=>['edit','create'] ]);
 
