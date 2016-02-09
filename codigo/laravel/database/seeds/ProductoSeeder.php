@@ -25,7 +25,7 @@ class ProductoSeeder extends Seeder {
 			
 			Producto::create(
 				[
-					'nombre'=>$faker->word()
+					'nombre'=>$faker->word(),
 					'categoria_id'=> $faker->numberBetween(1,$num_categorias)
 				]
 			);
