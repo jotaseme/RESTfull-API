@@ -19,7 +19,7 @@ class ProductoSeeder extends Seeder {
 		
 		$faker = Faker::create();
  
-		$num_categorias= Caegoria::all()->count();
+		$num_categorias= Categoria::all()->count();
 		for ($i=0; $i<20; $i++)
 		{
 			
