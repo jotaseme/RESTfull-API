@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Categoria;
+
 
 class CategoriaController extends Controller
 {
@@ -16,7 +18,7 @@ class CategoriaController extends Controller
 	 */
 	public function index()
 	{
-		return "Mostrando todas las categorias.";
+		return response()->json(['status'=>'ok','data'=>Categoria::all()], 200);
 	}
  
 	/**
