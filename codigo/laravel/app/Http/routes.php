@@ -11,21 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
+Route::resource('categorias','CategoriaController',['except'=>['edit','create'] ]);
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+Route::resource('productos','ProductoController',[ 'only'=>['index','show'] ]);
+
+Route::resource('categorias.productos','CategoriaProductoController',[ 'except'=>['show','edit','create'] ]);
